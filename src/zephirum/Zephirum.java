@@ -13,7 +13,7 @@ import zephirum.contents.*;
 public class Zephirum extends Mod{
 
     public Zephirum(){
-        Log.info("Loaded ExampleJavaMod constructor.");
+        Log.info("Loaded Zephirum constructor.");
 
         //listen for game load event
         Events.on(ClientLoadEvent.class, e -> {
@@ -31,9 +31,10 @@ public class Zephirum extends Mod{
 
     @Override
     public void loadContent(){
-        Log.info("Loading some example content.");
+        Log.info("Loading content.");
 
         ZepItems.load();
+        ZepBlocks.load();
     }
 
 }

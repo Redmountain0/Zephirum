@@ -11,30 +11,26 @@ public class ZepItems {
     public static Item iridium, infusedIridium, surgium;
 
     public static void load() {
-        iridium = new Item("iridium", Color.valueOf("00ffff")){
-            {
-                charge = 0.5f;
-                cost = 2.0f;
-                hardness = 6;
-            }
-        };
+        iridium = new Item("iridium", Color.valueOf("00ffff")){{
+            charge = 0.5f;
+            cost = 2.0f;
+            hardness = 6;
+        }};
 
-        infusedIridium = new Item("infusedIridium", Color.valueOf("00ffff")){
-            {
-                charge = 2.0f;
-                explosiveness = 0.5f;
-                radioactivity = 0.5f;
-                cost = 2.5f;
-                hardness = 6;
-            }
-        };
+        infusedIridium = new Item("infusedIridium", Color.valueOf("00ffff")){{
+            charge = 2.0f;
+            explosiveness = 0.5f;
+            radioactivity = 0.5f;
+            cost = 2.5f;
+            hardness = 6;
+        }};
 
-        surgium = new Item("surgium", Color.valueOf("c4bc62")){
-            {
-                charge = 0.2f;
-                cost = 1.0f;
-                hardness = 5;
-            }
-        };
+        surgium = new Item("surgium", Color.valueOf("c4bc62")){{
+            charge = 0.2f;
+            cost = 1.0f;
+            hardness = 5;
+        }};
+
+        
     }
 }
