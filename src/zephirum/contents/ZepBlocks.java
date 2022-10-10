@@ -7,10 +7,26 @@ import mindustry.entities.bullet.SapBulletType;
 import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.*;
+import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
+import mindustry.world.blocks.storage.CoreBlock;
+
+import zephirum.contents.ZepItems.*;
 
 public class ZepBlocks {
-    public static Block spiron;
+    public static Block 
+    
+    // turret
+    spiron,
+
+    // drill
+    drill,
+
+    // wall
+    iridiumWall, iridiumWallLarge,
+
+    // core
+    coreFragment;
 
     public static void load() {
         spiron = new ItemTurret("spiron"){{
@@ -43,6 +59,33 @@ public class ZepBlocks {
                     ammoMultiplier = 3f;
                 }}
             );
+        }};
+
+        int wallHealthMultiplier = 4;
+
+        iridiumWall = new Wall("iridium-wall"){{
+            requirements(Category.defense, ItemStack.with(ZepItems.iridium, 6));
+            health = 280 * wallHealthMultiplier;
+            armor = 36f;
+        }};
+
+        iridiumWallLarge = new Wall("iridium-wall-large"){{
+            requirements(Category.defense, ItemStack.mult(iridiumWall.requirements, 4));
+            health = 280 * wallHealthMultiplier * 4;
+            armor = 36f;
+            size = 2;
+        }};
+
+        coreFragment = new CoreBlock("core-fragment"){{
+            requirements(Category.effect, ItemStack.with(Items.copper, 1000, Items.lead, 800));
+            alwaysUnlocked = true;
+            isFirstTier = true;
+            unitType = UnitTypes.alpha;
+            health = 300;
+            itemCapacity = 800;
+            size = 2;
+
+            unitCapModifier = 4;
         }};
     }
 }

@@ -8,7 +8,7 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 
 public class ZepItems {
-    public static Item iridium, infusedIridium, surgium;
+    public static Item iridium, chargedIridium, surgium;
 
     public static void load() {
         iridium = new Item("iridium", Color.valueOf("00ffff")){{
@@ -17,7 +17,7 @@ public class ZepItems {
             hardness = 6;
         }};
 
-        infusedIridium = new Item("infusedIridium", Color.valueOf("00ffff")){{
+        chargedIridium = new Item("charged-iridium", Color.valueOf("00ffff")){{
             charge = 2.0f;
             explosiveness = 0.5f;
             radioactivity = 0.5f;
