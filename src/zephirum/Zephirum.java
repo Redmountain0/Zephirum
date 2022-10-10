@@ -8,6 +8,7 @@ import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
+import zephirum.contents.*;
 
 public class Zephirum extends Mod{
 
@@ -31,6 +32,8 @@ public class Zephirum extends Mod{
     @Override
     public void loadContent(){
         Log.info("Loading some example content.");
+
+        ZepItems.load();
     }
 
 }
