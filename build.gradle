@@ -2,6 +2,7 @@ apply plugin: "java"
 
 version '1.0'
 
+chmod +x ./gradlew
 targetCompatibility = 8
 sourceCompatibility = JavaVersion.VERSION_16
 
