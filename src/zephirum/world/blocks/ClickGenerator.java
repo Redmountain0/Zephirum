@@ -10,7 +10,7 @@ import mindustry.world.blocks.power.PowerBlock;
 import mindustry.world.meta.*;
 
 public class ClickGenerator extends PowerBlock {
-    public float tapTime = 20f;
+    public float tapTime = 120f;
     public float powerProduction = 1f;
     public TextureRegion trigRegion;
 
@@ -66,7 +66,7 @@ public class ClickGenerator extends PowerBlock {
 
         @Override
         public boolean configTapped(){
-            if(!enabled || pressed()) return false;
+            if(!enabled) return false;
 
             configure(true);
             return false;
