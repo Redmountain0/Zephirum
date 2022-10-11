@@ -55,7 +55,7 @@ public class ZepBlocks {
             shootSound = Sounds.sap;
 
             ammo(
-                Items.sporePod, new SapBulletType(){{
+                Items.sporePod, new DebuffBulletType(){{
                     sapStrength = 0;
                     damage = 8f;
                     buildingDamageMultiplier = 0.01f;
@@ -72,17 +72,8 @@ public class ZepBlocks {
                 }}
             );
             
-            unitSort = (u, x, y) -> noSapped(u, x, y);
             coolant = consume(new ConsumeLiquid(Liquids.water, 0.2f));
             coolantMultiplier = 6.6f;
-        }
-
-        private float noSapped(Unit u, float x, float y) {
-            Log.info(u.isImmune(StatusEffects.sapped));
-            Log.info(u.getDuration(StatusEffects.sapped));
-            Log.info(Mathf.dst(u.x, u.y, x, y));
-            Log.info("======");
-            return u.isImmune(StatusEffects.sapped) ? 1000000f : (u.getDuration(StatusEffects.sapped) + Mathf.dst(u.x, u.y, x, y) / 6400000f);
         }};
 
         // region ore
