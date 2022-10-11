@@ -12,6 +12,7 @@ import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.blocks.storage.CoreBlock;
 
 import zephirum.contents.ZepItems.*;
+import zephirum.world.blocks.*;
 
 public class ZepBlocks {
     public static Block 
@@ -21,6 +22,9 @@ public class ZepBlocks {
 
     // drill
     drill,
+
+    // power generator
+    clickGenerator,
 
     // wall
     iridiumWall, iridiumWallLarge,
@@ -65,15 +69,21 @@ public class ZepBlocks {
 
         iridiumWall = new Wall("iridium-wall"){{
             requirements(Category.defense, ItemStack.with(ZepItems.iridium, 6));
-            health = 280 * wallHealthMultiplier;
-            armor = 36f;
+            health = 270 * wallHealthMultiplier;
+            armor = 32f;
         }};
 
         iridiumWallLarge = new Wall("iridium-wall-large"){{
             requirements(Category.defense, ItemStack.mult(iridiumWall.requirements, 4));
-            health = 280 * wallHealthMultiplier * 4;
-            armor = 36f;
+            health = 270 * wallHealthMultiplier * 4;
+            armor = 32f;
             size = 2;
+        }};
+
+        clickGenerator = new ClickGenerator("click-generator"){{
+            requirements(Category.power, ItemStack.with(Items.graphite, 5));
+            health = 40;
+            powerProduction = 1f;
         }};
 
         coreFragment = new CoreBlock("core-fragment"){{
