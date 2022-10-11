@@ -33,6 +33,9 @@ public class ZepBlocks {
     // power generator
     clickGenerator,
 
+    // factory
+    powerCharger,
+
     // wall
     iridiumWall, iridiumWallLarge,
 
@@ -45,7 +48,8 @@ public class ZepBlocks {
             requirements(Category.turret, ItemStack.with(Items.lead, 80, Items.graphite, 65, Items.titanium, 50));
 
             reload = 20f;
-            range = 100f;
+            range = 120f;
+            // range +40 when using 
             recoil = 4f;
             size = 2;
             maxAmmo = 20;
@@ -53,7 +57,9 @@ public class ZepBlocks {
 
             health = 240 * size * size;
             shootSound = Sounds.sap;
-
+            // tmp option, will be support player control
+            playerControllable = false;
+            
             ammo(
                 Items.sporePod, new DebuffBulletType(){{
                     sapStrength = 0;
@@ -64,7 +70,7 @@ public class ZepBlocks {
                     lifetime = 30f;
                     shootEffect = Fx.shootSmall;
                     status = StatusEffects.sapped;
-                    statusDuration = 300;
+                    statusDuration = 60;
                     knockback = -2f;
                     hitColor = Color.valueOf("bf92f9");
                     color = Color.valueOf("bf92f9");
@@ -72,8 +78,9 @@ public class ZepBlocks {
                 }}
             );
             
+            unitSort = (u, x, y) -> u.isImmune(StatusEffects.sapped) ? 1000000f : (u.getDuration(StatusEffects.sapped) + Mathf.dst(u.x, u.y, x, y) / 6400000f);
             coolant = consume(new ConsumeLiquid(Liquids.water, 0.2f));
-            coolantMultiplier = 6.6f;
+            coolantMultiplier = 5f;
         }};
 
         // region ore

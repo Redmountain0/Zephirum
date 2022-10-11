@@ -10,8 +10,8 @@ import mindustry.world.blocks.power.PowerBlock;
 import mindustry.world.meta.*;
 
 public class ClickGenerator extends PowerBlock {
-    public float tapTime = 120f;
-    public float powerProduction = 1f;
+    public float tapTime = 60f;
+    public float powerProduction = 0.3f;
     public TextureRegion trigRegion;
 
     public ClickGenerator(String name){
@@ -76,7 +76,8 @@ public class ClickGenerator extends PowerBlock {
         public void read(Reads read, byte revision){
             super.read(read, revision);
 
-            if(read.bool()) heat = tapTime;
+            //if(read.bool())
+            heat = tapTime;
         }
 
         @Override
