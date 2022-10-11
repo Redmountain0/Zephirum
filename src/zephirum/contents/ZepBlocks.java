@@ -2,6 +2,7 @@ package zephirum.contents;
 
 import arc.*;
 import arc.graphics.*;
+import arc.util.*;
 import arc.math.*;
 import mindustry.content.*;
 import mindustry.entities.bullet.*;
@@ -77,6 +78,10 @@ public class ZepBlocks {
         }
 
         private float noSapped(Unit u, float x, float y) {
+            Log.info(u.isImmune(StatusEffects.sapped));
+            Log.info(u.getDuration(StatusEffects.sapped));
+            Log.info(Mathf.dst(u.x, u.y, x, y));
+            Log.info("======");
             return u.isImmune(StatusEffects.sapped) ? 1000000f : (u.getDuration(StatusEffects.sapped) + Mathf.dst(u.x, u.y, x, y) / 6400000f);
         }};
 
