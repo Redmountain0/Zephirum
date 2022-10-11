@@ -77,7 +77,7 @@ public class ZepBlocks {
         }
 
         private float noSapped(Unit u, float x, float y) {
-            return u.isImmune(StatusEffects.sapped) ? 1000000f : (u.getDuration(StatusEffects.sapped) + Mathf.dst2(u.x, u.y, x, y) / 6400f);
+            return u.isImmune(StatusEffects.sapped) ? 1000000f : (u.getDuration(StatusEffects.sapped) + Mathf.dst(u.x, u.y, x, y) / 6400000f);
         }};
 
         // region ore
