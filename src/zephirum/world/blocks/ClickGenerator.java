@@ -30,7 +30,7 @@ public class ClickGenerator extends PowerBlock {
         flags = EnumSet.of(BlockFlag.generator);
 
         config(Boolean.class, (ButtonTapBuild build, Boolean b) -> {
-            if(b && build.enabled && !build.pressed()) build.heat = tapTime;
+            if(b && build.enabled) build.heat = tapTime;
         });
     }
 

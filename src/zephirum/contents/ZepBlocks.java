@@ -93,7 +93,7 @@ public class ZepBlocks {
 
         // region power
         powerCharger = new MultiCrafter("power-charger"){{
-            requirements(Category.units, ItemStack.with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
+            requirements(Category.crafting, ItemStack.with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
             plans = Seq.with(
                 new CraftPlan(ItemStack.with(ZepItems.chargedIridium, 1), ItemStack.with(ZepItems.iridium, 1), null, null, 60f),
                 new CraftPlan(ItemStack.with(Items.surgeAlloy, 1), ItemStack.with(ZepItems.surgium, 1), null, null, 120f)

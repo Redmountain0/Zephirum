@@ -105,17 +105,6 @@ public class MultiCrafter extends GenericCrafter {
         public float warmup;
 
         @Override
-        public void draw(){
-            drawer.draw(this);
-        }
-
-        @Override
-        public void drawLight(){
-            super.drawLight();
-            drawer.drawLight(this);
-        }
-
-        @Override
         public boolean shouldConsume(){
             if(craftP.outputItems != null){
                 for(var output : craftP.outputItems){
