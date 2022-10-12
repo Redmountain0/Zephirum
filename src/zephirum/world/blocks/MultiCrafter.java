@@ -1,34 +1,17 @@
 package zephirum.world.blocks;
 
-import javax.swing.Icon;
-
-import arc.Core;
-import arc.graphics.Color;
-import arc.graphics.Texture;
 import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
-import arc.scene.style.TextureRegionDrawable;
-import arc.scene.ui.layout.Table;
 import arc.struct.Seq;
-import arc.util.Nullable;
-import arc.util.Scaling;
-import arc.util.Strings;
+import arc.util.*;
 import arc.util.Time;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
 import mindustry.gen.Building;
-import mindustry.graphics.Pal;
-import mindustry.logic.LAccess;
 import mindustry.type.Item;
 import mindustry.type.ItemStack;
-import mindustry.type.Liquid;
 import mindustry.type.LiquidStack;
-import mindustry.ui.ItemDisplay;
-import mindustry.ui.Styles;
-import mindustry.world.Build;
-import mindustry.world.blocks.distribution.Sorter.SorterBuild;
 import mindustry.world.blocks.production.GenericCrafter;
-import mindustry.world.meta.Stat;
 
 public class MultiCrafter extends GenericCrafter {
     public int[] capacities = {};
@@ -37,7 +20,6 @@ public class MultiCrafter extends GenericCrafter {
 
     public MultiCrafter(String name) {
         super(name);
-        int currentPlan = 0;
         configurable = true;
         clearOnDoubleTap = true;
 
