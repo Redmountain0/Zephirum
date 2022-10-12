@@ -4,6 +4,7 @@ import arc.*;
 import arc.graphics.*;
 import arc.util.*;
 import arc.math.*;
+import arc.struct.Seq;
 import mindustry.content.*;
 import mindustry.entities.bullet.*;
 import mindustry.gen.*;
@@ -88,6 +89,17 @@ public class ZepBlocks {
             oreDefault = true;
             oreThreshold = 0.902f;
             oreScale = 25.880953f;
+        }};
+
+        // region power
+        powerCharger = new MultiCrafter("power-charger"){{
+            requirements(Category.units, ItemStack.with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
+            plans = Seq.with(
+                new CraftPlan(ItemStack.with(ZepItems.chargedIridium, 1), ItemStack.with(ZepItems.iridium, 1), 60f),
+                new CraftPlan(ItemStack.with(Items.surgeAlloy, 1), ItemStack.with(ZepItems.surgium, 1), 120f)
+            );
+            size = 3;
+            consumePower(1.2f);
         }};
 
         // region wall
