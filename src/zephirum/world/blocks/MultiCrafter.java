@@ -24,7 +24,7 @@ public class MultiCrafter extends GenericCrafter {
         clearOnDoubleTap = true;
 
         config(CraftPlan.class, (MultiCrafterBuild tile, CraftPlan plan) -> tile.craftP = plan);
-        configClear((MultiCrafterBuild tile) -> tile.craftP = null);
+        configClear((MultiCrafterBuild tile) -> tile.craftP = plans.get(0));
     }
 
     public static class CraftPlan{
@@ -94,7 +94,7 @@ public class MultiCrafter extends GenericCrafter {
     */
     
     public class MultiCrafterBuild extends Building {
-        public @Nullable CraftPlan craftP;
+        public @Nullable CraftPlan craftP = plans.get(0);
         
         public CraftPlan config(){
             return craftP;
