@@ -29,7 +29,7 @@ public class ClickGenerator extends PowerBlock {
 
         flags = EnumSet.of(BlockFlag.generator);
 
-        config(Boolean.class, (ButtonTapBuild build, Boolean b) -> {
+        config(Boolean.class, (ClickGeneratorBuild build, Boolean b) -> {
             if(b && build.enabled) build.heat = tapTime;
         });
     }
@@ -40,7 +40,7 @@ public class ClickGenerator extends PowerBlock {
         trigRegion = Core.atlas.find(name + "-trig");
     }
 
-    public class ButtonTapBuild extends Building {
+    public class ClickGeneratorBuild extends Building {
         public float heat = 0f;
 
         @Override
@@ -66,7 +66,7 @@ public class ClickGenerator extends PowerBlock {
 
         @Override
         public boolean configTapped(){
-            if(!enabled) return false;
+            if(!enabled || pressed()) return false;
 
             configure(true);
             return false;
@@ -76,8 +76,7 @@ public class ClickGenerator extends PowerBlock {
         public void read(Reads read, byte revision){
             super.read(read, revision);
 
-            //if(read.bool())
-            heat = tapTime;
+            if(read.bool()) heat = tapTime;
         }
 
         @Override

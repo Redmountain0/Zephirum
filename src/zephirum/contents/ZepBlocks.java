@@ -125,7 +125,7 @@ public class ZepBlocks {
         clickGenerator = new ClickGenerator("click-generator"){{
             requirements(Category.power, ItemStack.with(Items.graphite, 5));
             health = 40;
-            powerProduction = 1f;
+            powerProduction = 0.1f;
         }};
         
         // region core
