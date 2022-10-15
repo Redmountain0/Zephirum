@@ -1,5 +1,6 @@
 package zephirum.contents;
 
+
 import arc.*;
 import arc.graphics.*;
 import arc.util.*;
@@ -14,6 +15,7 @@ import mindustry.world.consumers.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.payloads.Constructor;
 import mindustry.world.blocks.storage.*;
 
 import zephirum.contents.ZepItems.*;
@@ -141,7 +143,7 @@ public class ZepBlocks {
 
         // Test Block, may delete next version
         specialConstructor = new Constructor("special-constructor"){{
-            requirements(Category.units, with(Items.silicon, 150, Items.thorium, 150, Items.titanium, 200, Items.phaseFabric, 40));
+            requirements(Category.units, ItemStack.with(Items.silicon, 150, Items.thorium, 150, Items.titanium, 200, Items.phaseFabric, 40));
             hasPower = true;
             buildSpeed = 0.5f;
             maxBlockSize = 3;
