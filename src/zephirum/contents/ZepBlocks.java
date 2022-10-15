@@ -92,6 +92,7 @@ public class ZepBlocks {
         }};
 
         // region power
+        /* unstable block
         powerCharger = new MultiCrafter("power-charger"){{
             requirements(Category.crafting, ItemStack.with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
             plans = Seq.with(
@@ -101,6 +102,7 @@ public class ZepBlocks {
             size = 3;
             consumePower(1.2f);
         }};
+        */
 
         // region wall
         int wallHealthMultiplier = 4;
@@ -135,6 +137,18 @@ public class ZepBlocks {
             size = 2;
 
             unitCapModifier = 4;
+        }};
+
+        // Test Block, may delete next version
+        specialConstructor = new Constructor("special-constructor"){{
+            requirements(Category.units, with(Items.silicon, 150, Items.thorium, 150, Items.titanium, 200, Items.phaseFabric, 40));
+            hasPower = true;
+            buildSpeed = 0.5f;
+            maxBlockSize = 3;
+            minBlockSize = 1;
+            size = 5;
+
+            consumePower(2f);
         }};
     }
 }
