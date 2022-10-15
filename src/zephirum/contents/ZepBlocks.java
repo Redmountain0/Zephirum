@@ -35,7 +35,7 @@ public class ZepBlocks {
     clickGenerator,
 
     // factory
-    powerCharger,
+    powerCharger, specialConstructor,
 
     // wall
     iridiumWall, iridiumWallLarge,
