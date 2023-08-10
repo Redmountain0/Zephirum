@@ -8,9 +8,14 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 
 public class ZepItems {
-    public static Item iridium, chargedIridium, surgium;
+    public static Item stone, iridium, chargedIridium, surgium;
 
     public static void load() {
+        stone = new Item("stone", Color.valueOf("888888")){{
+            cost = 0.3f;
+            hardness = 0;
+        }};
+
         iridium = new Item("iridium", Color.valueOf("00ffff")){{
             charge = 0.5f;
             cost = 2.0f;
@@ -30,7 +35,5 @@ public class ZepItems {
             cost = 1.0f;
             hardness = 5;
         }};
-
-        
     }
 }

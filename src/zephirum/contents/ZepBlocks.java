@@ -28,7 +28,7 @@ public class ZepBlocks {
     spiron,
 
     // drill
-    drill,
+    stoneDrill, 
 
     // ore
     oreIridium,
@@ -37,7 +37,7 @@ public class ZepBlocks {
     clickGenerator,
 
     // factory
-    powerCharger, specialConstructor,
+    powerCharger,
 
     // wall
     iridiumWall, iridiumWallLarge,
@@ -85,12 +85,45 @@ public class ZepBlocks {
             coolant = consume(new ConsumeLiquid(Liquids.water, 0.2f));
             coolantMultiplier = 5f;
         }};
+        // region drill
+        stoneDrill = new AttributeCrafter("stone-drill"){{
+            requirements(Category.production, with(ZepItems.stone, 40));
+            outputItem = new ItemStack(ZepItems.stone, 1);
+            craftTime = 100;
+            size = 2;
+            hasLiquids = true;
+            hasPower = true;
+            hasItems = true;
+
+            craftEffect = Fx.none;
+            envRequired |= Env.spores;
+            attribute = Attribute.spores;
+
+            legacyReadWarmup = true;
+            drawer = new DrawMulti(
+            new DrawRegion("-bottom"),
+            new DrawLiquidTile(Liquids.water),
+            new DrawDefault(),
+            new DrawCultivator(),
+            new DrawRegion("-top")
+            );
+            maxBoost = 2f;
+
+            consumePower(80f / 60f);
+            consumeLiquid(Liquids.water, 18f / 60f);
+        }};
 
         // region ore
         oreIridium = new OreBlock(ZepItems.iridium){{
             oreDefault = true;
             oreThreshold = 0.902f;
             oreScale = 25.880953f;
+        }};
+
+        oreStone = new OreBlock(Items.stone){{
+            oreDefault = true;
+            oreThreshold = 0.8f;
+            oreScale = 23.5f;
         }};
 
         // region power
@@ -141,7 +174,8 @@ public class ZepBlocks {
             unitCapModifier = 4;
         }};
 
-        // Test Block, may delete next version
+        // Test Block, only code reference purpose
+        /*
         specialConstructor = new Constructor("special-constructor"){{
             requirements(Category.units, ItemStack.with(Items.silicon, 150, Items.thorium, 150, Items.titanium, 200, Items.phaseFabric, 40));
             hasPower = true;
@@ -152,5 +186,6 @@ public class ZepBlocks {
 
             consumePower(2f);
         }};
+        */
     }
 }
