@@ -33,6 +33,7 @@ public class Zephirum extends Mod{
     public void loadContent(){
         Log.info("Loading content.");
 
+        ZepAttributes.load();
         ZepItems.load();
         ZepBlocks.load();
     }
