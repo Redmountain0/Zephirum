@@ -15,8 +15,11 @@ import mindustry.world.consumers.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.payloads.Constructor;
 import mindustry.world.blocks.storage.*;
+import mindustry.world.draw.*;
+import mindustry.world.meta.*;
 
 import zephirum.contents.ZepItems.*;
 import zephirum.world.blocks.*;
@@ -31,7 +34,7 @@ public class ZepBlocks {
     stoneDrill, 
 
     // ore
-    oreIridium,
+    oreStone, oreIridium,
     
     // power generator
     clickGenerator,
@@ -87,7 +90,7 @@ public class ZepBlocks {
         }};
         // region drill
         stoneDrill = new AttributeCrafter("stone-drill"){{
-            requirements(Category.production, with(ZepItems.stone, 40));
+            requirements(Category.production, ItemStack.with(ZepItems.stone, 40));
             outputItem = new ItemStack(ZepItems.stone, 1);
             craftTime = 100;
             size = 2;
@@ -96,17 +99,14 @@ public class ZepBlocks {
             hasItems = true;
 
             craftEffect = Fx.none;
-            envRequired |= Env.spores;
-            attribute = Attribute.spores;
 
             legacyReadWarmup = true;
             drawer = new DrawMulti(
-            new DrawRegion("-bottom"),
-            new DrawLiquidTile(Liquids.water),
-            new DrawDefault(),
-            new DrawCultivator(),
-            new DrawRegion("-top")
+                 new DrawDefault(),
+                 new DrawRegion("-rotator", 1f),
+                 new DrawRegion("-top")
             );
+            attribute = Attribute.get("stone");
             maxBoost = 2f;
 
             consumePower(80f / 60f);
@@ -120,7 +120,7 @@ public class ZepBlocks {
             oreScale = 25.880953f;
         }};
 
-        oreStone = new OreBlock(Items.stone){{
+        oreStone = new OreBlock(ZepItems.stone){{
             oreDefault = true;
             oreThreshold = 0.8f;
             oreScale = 23.5f;
