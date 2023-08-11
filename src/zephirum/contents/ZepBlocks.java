@@ -120,10 +120,11 @@ public class ZepBlocks {
             oreScale = 25.880953f;
         }};
 
-        oreStone = new OreBlock(ZepItems.stone){{
+        oreStone = new OreBlock("ore-stone"){{
             oreDefault = true;
             oreThreshold = 0.8f;
             oreScale = 23.5f;
+            itemDrop = ZepItems.stone;
         }};
 
         // region power
