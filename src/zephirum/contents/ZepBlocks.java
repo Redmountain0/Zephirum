@@ -160,19 +160,6 @@ public class ZepBlocks {
             health = 40;
             powerProduction = 0.1f;
         }};
-        
-        // region core
-        coreFragment = new CoreBlock("core-fragment"){{
-            requirements(Category.effect, ItemStack.with(Items.copper, 1000, Items.lead, 800));
-            alwaysUnlocked = true;
-            isFirstTier = true;
-            unitType = UnitTypes.alpha;
-            health = 300;
-            itemCapacity = 800;
-            size = 2;
-
-            unitCapModifier = 4;
-        }};
 
         // Test Block, only code reference purpose
         /*
