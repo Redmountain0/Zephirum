@@ -18,7 +18,23 @@ public class vanillaOverride {
         // EI Support
         Vars.content.unit("ei-piece").mineWalls = true;
         
+        Blocks.oreCopper.itemDrop = ZepItems.copperOre;
+        Blocks.oreLead.itemDrop = ZepItems.leadOre;
+        /* 
+        Blocks.oreCoal.itemDrop = ZepItems.coalOre;
+        Blocks.oreTitanium.itemDrop = ZepItems.titaniumOre;
+        Blocks.oreThorium.itemDrop = ZepItems.thoriumOre;
+        Blocks.oreCrystalThorium.itemDrop = ZepItems.thoriumOre;
+        Blocks.wallOreThorium.itemDrop = ZepItems.thoriumOre;
+        */
+        /* 
+        Blocks.oreBeryllium.itemDrop = ZepItems.berylliumOre;
+        Blocks.wallOreBeryllium.itemDrop = ZepItems.berylliumOre;
+        Blocks.oreTungsten.itemDrop = ZepItems.tungstenOre;
+        Blocks.wallOreTungsten.itemDrop = ZepItems.tungstenOre;
+        */
         
+
         // modpack-specific balance changes
         // will be seperated to another mod
         Vars.content.unit("ei-piece").mineSpeed = 1.0f;

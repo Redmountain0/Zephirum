@@ -15,6 +15,7 @@ import mindustry.world.consumers.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.heat.HeatProducer;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.payloads.Constructor;
 import mindustry.world.blocks.storage.*;
@@ -40,7 +41,7 @@ public class ZepBlocks {
     clickGenerator,
 
     // factory
-    powerCharger,
+    powerCharger, woodHeater, basicSmelter,
 
     // wall
     iridiumWall, iridiumWallLarge,
@@ -161,6 +162,34 @@ public class ZepBlocks {
             requirements(Category.power, ItemStack.with(Items.graphite, 5));
             health = 40;
             powerProduction = 0.1f;
+        }};
+
+        woodHeater = new HeatProducer("wood-heater"){{
+            requirements(Category.crafting, ItemStack.with(ZepItems.stone, 25, ZepItems.wood, 15));
+
+            drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
+            size = 1;
+            heatOutput = 0.5f;
+            craftTime = 60f * 2f;
+            ambientSound = Sounds.hum;
+            consumeItem(ZepItems.wood);
+        }};
+
+        basicSmelter = new HeatCrafter("basic-smelter"){{
+            requirements(Category.crafting, ItemStack.with(ZepItems.stone, 50, ZepItems.wood, 50));
+            craftEffect = Fx.none;
+            outputItem = new ItemStack(Items.copper, 4);
+            craftTime = 60f * 10f;
+            size = 3;
+            itemCapacity = 20;
+            hasItems = true;
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawCrucibleFlame(), new DrawDefault(), new DrawHeatInput());
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.09f;
+
+            heatRequirement = 1f;
+
+            consumeItems(ItemStack.with(ZepItems.copperOre, 4));
         }};
 
         // Test Block, only code reference purpose
