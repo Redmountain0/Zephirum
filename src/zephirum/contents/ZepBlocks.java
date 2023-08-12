@@ -25,6 +25,8 @@ import mindustry.world.meta.*;
 import zephirum.contents.ZepItems.*;
 import zephirum.world.blocks.*;
 
+import multicraft.*;
+
 public class ZepBlocks {
     public static Block 
     
@@ -169,17 +171,65 @@ public class ZepBlocks {
 
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
             size = 1;
-            heatOutput = 0.5f;
+            heatOutput = 1f;
             craftTime = 60f * 2f;
             ambientSound = Sounds.hum;
             consumeItem(ZepItems.wood);
         }};
 
-        basicSmelter = new HeatCrafter("basic-smelter"){{
-            requirements(Category.crafting, ItemStack.with(ZepItems.stone, 50, ZepItems.wood, 50));
+        basicSmelter = new MultiCrafter("basic-smelter") {{
+            requirements(Category.crafting, ItemStack.with(ZepItems.stone, 60, ZepItems.wood, 40));
+            size = 2;
+
+            isConsumeItem = true;
+            isConsumeHeat = true;
+            isOutputItem = true;
+            overheatScale = 0.5f;
+            maxEfficiency = 2f;
+
+            resolvedRecipes = Seq.with(
+                new Recipe(
+                    new IOEntry(
+                        Seq.with(ItemStack.with(ZepItems.copperOre, 8)),
+                        Seq.with()
+                    ),
+                    new IOEntry(
+                        Seq.with(ItemStack.with(Items.copper, 8)),
+                        Seq.with()
+                    ), 12f * 60f
+                ),
+                new Recipe(
+                    new IOEntry(
+                        Seq.with(ItemStack.with(ZepItems.leadOre, 8)),
+                        Seq.with()
+                    ),
+                    new IOEntry(
+                        Seq.with(ItemStack.with(Items.lead, 8)),
+                        Seq.with()
+                    ), 16f * 60f
+                ),
+                new Recipe(
+                    new IOEntry(
+                        Seq.with(ItemStack.with(ZepItems.coalOre, 8)),
+                        Seq.with()
+                    ),
+                    new IOEntry(
+                        Seq.with(ItemStack.with(Items.coal, 8)),
+                        Seq.with()
+                    ), 24f * 60f
+                )
+            );
+
+            drawer = new DrawMulti(
+                    new DrawDefault()
+            );
+        }};
+        /*
+        new HeatCrafter("basic-smelter"){{
+            requirements(Category.crafting, ItemStack.with(ZepItems.stone, 60, ZepItems.wood, 40));
             craftEffect = Fx.none;
-            outputItem = new ItemStack(Items.copper, 4);
-            craftTime = 60f * 10f;
+            outputItem = new ItemStack(Items.copper, 8);
+            craftTime = 60f * 16f;
             size = 3;
             itemCapacity = 20;
             hasItems = true;
@@ -188,9 +238,12 @@ public class ZepBlocks {
             ambientSoundVolume = 0.09f;
 
             heatRequirement = 1f;
+            overheatScale = 0.5f;
+            maxEfficiency = 2f;
 
-            consumeItems(ItemStack.with(ZepItems.copperOre, 4));
+            consumeItems(ItemStack.with(ZepItems.copperOre, 8));
         }};
+        */
 
         // Test Block, only code reference purpose
         /*

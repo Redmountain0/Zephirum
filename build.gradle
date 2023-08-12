@@ -33,6 +33,10 @@ dependencies{
     annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
 }
 
+dependencies {
+    implementation 'com.github.liplum:MultiCrafterLib:v1.7'
+}
+
 //force arc version
 configurations.all{
     resolutionStrategy.eachDependency { details ->

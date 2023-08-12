@@ -8,7 +8,7 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 
 public class ZepItems {
-    public static Item wood, stone, copperOre, leadOre, 
+    public static Item wood, stone, copperOre, leadOre, coalOre,
     iridium, chargedIridium, surgium;
 
     public static void load() {
@@ -29,6 +29,11 @@ public class ZepItems {
 
         leadOre = new Item("lead-ore", Color.valueOf("888888")){{
             cost = 0.5f;
+            hardness = 1;
+        }};
+
+        coalOre = new Item("coal-ore", Color.valueOf("222222")){{
+            cost = 0.6f;
             hardness = 1;
         }};
 
