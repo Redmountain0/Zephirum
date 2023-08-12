@@ -179,42 +179,49 @@ public class ZepBlocks {
 
         basicSmelter = new MultiCrafter("basic-smelter") {{
             requirements(Category.crafting, ItemStack.with(ZepItems.stone, 60, ZepItems.wood, 40));
-            size = 2;
+            size = 3;
 
-            isConsumeItem = true;
-            isConsumeHeat = true;
-            isOutputItem = true;
             overheatScale = 0.5f;
             maxEfficiency = 2f;
 
+            final IOEntry[] IOs = {
+                new IOEntry(
+                    Seq.with(ItemStack.with(ZepItems.copperOre, 10)),
+                    Seq.with()
+                ),
+                new IOEntry(
+                    Seq.with(ItemStack.with(ZepItems.leadOre, 10)),
+                    Seq.with()
+                ),
+                new IOEntry(
+                    Seq.with(ItemStack.with(ZepItems.coalOre, 10)),
+                    Seq.with()
+                )
+            };
+
+            for (int i = 0; i < 3; i++) {
+                IOs[i].heat = 1f;
+            };
+
             resolvedRecipes = Seq.with(
                 new Recipe(
+                    IOs[0],
                     new IOEntry(
-                        Seq.with(ItemStack.with(ZepItems.copperOre, 8)),
-                        Seq.with()
-                    ),
-                    new IOEntry(
-                        Seq.with(ItemStack.with(Items.copper, 8)),
+                        Seq.with(ItemStack.with(Items.copper, 10)),
                         Seq.with()
                     ), 12f * 60f
                 ),
                 new Recipe(
+                    IOs[1],
                     new IOEntry(
-                        Seq.with(ItemStack.with(ZepItems.leadOre, 8)),
-                        Seq.with()
-                    ),
-                    new IOEntry(
-                        Seq.with(ItemStack.with(Items.lead, 8)),
+                        Seq.with(ItemStack.with(Items.lead, 10)),
                         Seq.with()
                     ), 16f * 60f
                 ),
                 new Recipe(
+                    IOs[2],
                     new IOEntry(
-                        Seq.with(ItemStack.with(ZepItems.coalOre, 8)),
-                        Seq.with()
-                    ),
-                    new IOEntry(
-                        Seq.with(ItemStack.with(Items.coal, 8)),
+                        Seq.with(ItemStack.with(Items.coal, 10)),
                         Seq.with()
                     ), 24f * 60f
                 )
