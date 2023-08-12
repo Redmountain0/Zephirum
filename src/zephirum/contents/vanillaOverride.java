@@ -15,7 +15,7 @@ public class vanillaOverride {
         UnitTypes.gamma.mineWalls = true;
 
         // EI Support
-        Vars.content.getByName(ContentType.unit, "ei-piece").mineWalls = true;
-        Vars.content.getByName(ContentType.unit, "ei-piece").mineTier = 0;
+        Vars.content.unit("ei-piece").mineWalls = true;
+        Vars.content.unit("ei-piece").mineTier = 0;
     }
 }
