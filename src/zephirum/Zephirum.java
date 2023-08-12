@@ -36,6 +36,7 @@ public class Zephirum extends Mod{
         ZepAttributes.load();
         ZepItems.load();
         ZepBlocks.load();
+        vanillaOverride.load();
     }
 
 }

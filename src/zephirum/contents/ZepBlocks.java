@@ -114,10 +114,11 @@ public class ZepBlocks {
         }};
 
         // region ore
-        oreIridium = new OreBlock(ZepItems.iridium){{
+        oreIridium = new OreBlock("ore-iridium"){{
             oreDefault = true;
             oreThreshold = 0.902f;
             oreScale = 25.880953f;
+            itemDrop = ZepItems.iridium;
         }};
 
         oreStone = new OreBlock("ore-stone"){{
